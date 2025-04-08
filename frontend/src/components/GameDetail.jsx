@@ -14,7 +14,7 @@ const GameDetail = ({ gameId }) => {
     useEffect(() => {
         if (!gameId) return;
 
-        fetch('http://localhost:5050/api/games/details', {
+        fetch(`${process.env.REACT_APP_API_URL}/api/games/details`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: gameId })
@@ -36,7 +36,7 @@ const GameDetail = ({ gameId }) => {
 
         if (!confirmDelete) return;
 
-        fetch('http://localhost:5050/api/games/', {
+        fetch(`${process.env.REACT_APP_API_URL}/api/games/`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: gameId })

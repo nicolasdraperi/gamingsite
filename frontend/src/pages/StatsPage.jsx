@@ -11,7 +11,7 @@ const StatsPage = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5050/api/games')
+        fetch(`${process.env.REACT_APP_API_URL}/api/games`)
             .then(res => res.json())
             .then(data => {
                 setGames(data);

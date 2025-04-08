@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 
-
 const GameForm = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -52,9 +51,11 @@ const GameForm = () => {
             note: parsedNote,
         };
 
-        fetch('http://localhost:5050/api/games', {
+        fetch(`${process.env.REACT_APP_API_URL}/api/games`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(payload)
         })
             .then(res => res.json())
