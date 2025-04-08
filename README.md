@@ -83,6 +83,7 @@ cp .env.example .env
 ✏️ Contenu du `.env` :
 
 ```env
+PORT=5050
 REACT_APP_API_URL=http://localhost:5050
 ```
 
@@ -101,7 +102,6 @@ docker run -d --name frontend-container -p 5051:80 frontend-jeux-video
 
 - Ouvrir **http://localhost:5051** dans le navigateur
 - Toutes les requêtes API passent par **http://localhost:5050**
-- La base de données Mongo est accessible en local si besoin (ex : via MongoDB Compass)
 
 ---
 
