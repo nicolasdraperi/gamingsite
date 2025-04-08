@@ -1,7 +1,7 @@
 
 # 🎮 GamingSite - Application React / Node.js / MongoDB Dockerisée
 
-Bienvenue sur GamingSite, une application web fullstack développée en React, Node.js et MongoDB, entièrement dockerisée sans `docker-compose`.
+Bienvenue sur GamingSite, une application web fullstack développée en React, Node.js et MongoDB, entièrement dockerisée.
 
 ---
 
