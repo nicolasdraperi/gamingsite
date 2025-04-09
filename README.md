@@ -1,19 +1,19 @@
-
 # 🎮 GamingSite - Application React / Node.js / MongoDB Dockerisée
 
-Bienvenue sur GamingSite, une application web fullstack développée en React, Node.js et MongoDB, entièrement dockerisée.
+Bienvenue sur GamingSite, une application web fullstack développée en React, Node.js et MongoDB, dockerisée à la main **et** avec Docker Compose.
 
 ---
 
 ## 📦 Prérequis
 
 - [Docker](https://www.docker.com/) installé sur votre machine
+- [Docker Compose](https://docs.docker.com/compose/)
 - [Git](https://git-scm.com/) pour cloner le projet
 - Accès à un terminal
 
 ---
 
-## 🚀 Étapes de lancement
+## 🚀 Lancer le projet avec Docker Compose
 
 ### 1️⃣ Cloner le projet
 
@@ -24,84 +24,49 @@ cd gamingsite
 
 ---
 
-### 2️⃣ Lancer MongoDB
+### 2️⃣ Configurer les fichiers `.env`
 
-```bash
-docker run -d --name mongodb-container -p 27017:27017 -v mongodata:/data/db mongo
-```
+📁 Créer les fichiers `.env` :
 
-✅ MongoDB tourne sur `localhost:27017`
-
----
-
-### 3️⃣ Lancer le Backend Node.js
-
-📁 Aller dans le dossier `backend` :
-
-```bash
-cd backend
-```
-
-📄 Créer le fichier `.env` (basé sur `.env.example`) :
+- À la racine : `.env` (pour Docker Compose)
+- Dans `/backend` : `.env` (pour le backend)
 
 ```bash
 cp .env.example .env
+cd backend && cp .env.example .env && cd ..
 ```
 
-✏️ Contenu du fichier `.env` :
+### Contenu recommandé :
 
+📄 `.env` (à la racine) :
+```env
+# Ports
+MONGO_PORT=27017
+BACKEND_PORT=5050
+FRONTEND_PORT=5051
+```
+
+📄 `backend/.env` :
 ```env
 PORT=5050
-MONGO_URI=mongodb://mongodb:27017/jeux_video
+MONGO_URI=mongodb://mongo:27017/jeux_video
 ```
-
-🐳 Build & run le conteneur :
-
-```bash
-docker build -t backend-jeux-video .
-docker run -d --name backend-container --env-file .env --link mongodb-container:mongodb -p 5050:5050 backend-jeux-video
-```
-
-✅ Backend dispo sur `http://localhost:5050`
 
 ---
 
-### 4️⃣ Lancer le Frontend React
-
-📁 Aller dans le dossier `frontend` :
+### 3️⃣ Lancer tous les conteneurs
 
 ```bash
-cd ../frontend
+docker compose --env-file .env up --build
 ```
-
-📄 Créer le fichier `.env` :
-
-```bash
-cp .env.example .env
-```
-
-✏️ Contenu du `.env` :
-
-```env
-PORT=5050
-REACT_APP_API_URL=http://localhost:5050
-```
-
-🐳 Build & run le frontend :
-
-```bash
-docker build -t frontend-jeux-video .
-docker run -d --name frontend-container -p 5051:80 frontend-jeux-video
-```
-
-✅ Frontend dispo sur `http://localhost:5051`
 
 ---
 
-## 🧪 Tester l'application
+## 🧪 Accéder à l'application
 
-- Ouvrir **http://localhost:5051** dans le navigateur
-- Toutes les requêtes API passent par **http://localhost:5050**
+- 🧠 MongoDB tourne sur `localhost:27017`
+- 🚀 Backend Node.js : `http://localhost:5050`
+- 🎨 Frontend React : `http://localhost:5051`
 
 ---
 
@@ -113,20 +78,20 @@ docker run -d --name frontend-container -p 5051:80 frontend-jeux-video
 docker ps
 ```
 
-- Arrêter et supprimer un conteneur :
+- Arrêter tout :
 
 ```bash
-docker rm -f <nom_conteneur>
+docker compose down
 ```
 
-- Voir les logs d’un conteneur :
+- Voir les logs d’un service :
 
 ```bash
-docker logs <nom_conteneur>
+docker compose logs backend
 ```
 
 ---
 
 ## ✨ Auteur
 
-Projet crée dockerisé par Nicolas Draperi 
+Projet dockerisé par Nicolas Draperi
