@@ -1,6 +1,6 @@
 # 🎮 GamingSite - Application React / Node.js / MongoDB Dockerisée
 
-Bienvenue sur GamingSite, une application web fullstack développée en React, Node.js et MongoDB, dockerisée à la main **et** avec Docker Compose.
+Bienvenue sur GamingSite, une application web fullstack développée en React, Node.js et MongoDB, dockerisée avec Docker Compose.
 
 ---
 
@@ -29,11 +29,12 @@ cd gamingsite
 📁 Créer les fichiers `.env` :
 
 - À la racine : `.env` (pour Docker Compose)
-- Dans `/backend` : `.env` (pour le backend)
+- Dans `/backend` : `.env`
+- Dans `/frontend` : `.env`
 
 ```bash
 cp .env.example .env
-cd backend && cp .env.example .env && cd ..
+cd backend && cp .env.example .env && cd ../frontend && cp .env.example .env && cd ..
 ```
 
 ### Contenu recommandé :
@@ -50,6 +51,11 @@ FRONTEND_PORT=5051
 ```env
 PORT=5050
 MONGO_URI=mongodb://mongo:27017/jeux_video
+```
+
+📄 `frontend/.env` :
+```env
+REACT_APP_API_URL=http://localhost:5050
 ```
 
 ---
