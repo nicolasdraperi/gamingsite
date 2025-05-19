@@ -40,8 +40,8 @@ const GameForm = () => {
 
         // ⚠️ Optionnel : validation de la note
         const parsedNote = parseFloat(formData.note);
-        if (isNaN(parsedNote) || parsedNote < 0 || parsedNote > 10) {
-            alert('La note doit être entre 0 et 10');
+        if (isNaN(parsedNote) || parsedNote < 0 || parsedNote > 100) {
+            alert('La note doit être entre 0 et 100');
             return;
         }
 
@@ -105,10 +105,10 @@ const GameForm = () => {
                 required
             />
 
-            <label className="block mb-2">Note (sur 10)</label>
+            <label className="block mb-2">Note (sur 100)</label>
             <input
                 type="number"
-                step="0.1"
+                step="1"
                 name="note"
                 value={formData.note}
                 onChange={handleChange}

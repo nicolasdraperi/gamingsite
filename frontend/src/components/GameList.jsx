@@ -48,7 +48,7 @@ const GameList = () => {
                         <div key={game._id} className="p-4 rounded-lg shadow-lg border bg-white/60 backdrop-blur">
                         <h3 className="text-xl font-semibold text-purple-700">{game.name}</h3>
                             <p><strong>🎮 Heures jouées :</strong> {game.hoursPlayed}h</p>
-                            <p><strong>⭐ Note :</strong> {game.note}/10</p>
+                            <p><strong>⭐ Note :</strong> {game.note}/100</p>
                             <p><strong>🏷️ Tags :</strong> {game.tags.join(', ')}</p>
                             <p><strong>📌 Terminé :</strong> {game.finished ? 'Oui ✅' : 'Non ❌'}</p>
                             <button

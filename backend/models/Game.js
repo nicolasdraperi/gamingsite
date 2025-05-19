@@ -5,7 +5,7 @@ const gameSchema = new mongoose.Schema({
     hoursPlayed: { type: Number, default: 0 },
     tags: [String],
     finished: { type: Boolean, default: false },
-    note: { type: Number, min: 0, max: 10 },
+    note: { type: Number, min: 0, max: 100 },
     imageUrl: { type: String }
 }, {
     timestamps: true

@@ -114,7 +114,7 @@ const StatsPage = () => {
                                 </div>
 
                                 <h4 className="text-lg font-bold">{game.name}</h4>
-                                <p className="text-sm text-gray-600">Note : {game.note}/10</p>
+                                <p className="text-sm text-gray-600">Note : {game.note}/100</p>
                             </div>
                         ))}
                 </div>

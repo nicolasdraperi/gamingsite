@@ -69,7 +69,7 @@ const GameDetail = ({ gameId }) => {
             <img src={game.imageUrl} alt={game.name} className="w-full h-64 object-cover rounded-md mb-4" />
             <h2 className="text-2xl font-bold mb-2">{game.name}</h2>
             <p><strong>🎮 Heures jouées :</strong> <CountUp end={game.hoursPlayed} duration={2} suffix="h" /></p>
-            <p><strong>⭐ Note :</strong> {game.note}/10</p>
+            <p><strong>⭐ Note :</strong> {game.note}/100</p>
             <p><strong>🏷️ Tags :</strong> {game.tags.join(', ')}</p>
             <p><strong>📌 Terminé :</strong> {game.finished ? 'Oui ✅' : 'Non ❌'}</p>
         </div>
